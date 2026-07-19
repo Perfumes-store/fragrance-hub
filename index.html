@@ -1,10 +1,58 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Tech Academy</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #0f172a; color: white; }
+        header { background: #1e293b; padding: 20px; text-align: center; border-bottom: 3px solid #38bdf8; }
+        .container { padding: 20px; max-width: 900px; margin: auto; }
+        .card { background: #334155; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        #qa-section { background: #1e293b; padding: 20px; border-radius: 10px; margin-top: 30px; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; }
+        button { background: #38bdf8; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+    </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<header>
+    <h1>🚀 HIGH-TECH ACADEMY</h1>
+    <p>Mastering the Future of Technology</p>
+</header>
+
+<div class="container">
+    <h2>Available IT Courses</h2>
+    <div class="card"><h3>Full Stack Web Development</h3><p>Learn MERN Stack, React, and Node.js.</p></div>
+    <div class="card"><h3>Artificial Intelligence</h3><p>Dive into Machine Learning and Python.</p></div>
+    <div class="card"><h3>Cyber Security</h3><p>Become an expert in ethical hacking and network security.</p></div>
+
+    <div id="qa-section">
+        <h2>Ask a Question</h2>
+        <input type="text" id="userName" placeholder="Your Name">
+        <textarea id="userQuestion" placeholder="Type your question here..."></textarea>
+        <button onclick="postQuestion()">Post Question</button>
+        
+        <div id="displayArea"><h3>Recent Questions:</h3></div>
+    </div>
+</div>
+
+<script>
+    function postQuestion() {
+        let name = document.getElementById('userName').value;
+        let question = document.getElementById('userQuestion').value;
+        if(name && question) {
+            let area = document.getElementById('displayArea');
+            area.innerHTML += `<div class='card'><strong>${name}:</strong> ${question}</div>`;
+            document.getElementById('userName').value = '';
+            document.getElementById('userQuestion').value = '';
+        } else {
+            alert("Please fill in both fields!");
+        }
+    }
+</script>
 
 <script src="script.js"></script>
 </body>
